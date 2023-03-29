@@ -5,20 +5,27 @@ var Stack = function() {
   var storage = {};
 
   // Implement the methods below
+  var keyNum = 0;
+
   someInstance.push = function(value) {
-    storage[value] = storage[value] ;
+    keyNum++;
+    storage[keyNum] = value;
   };
 
   someInstance.pop = function() {
-    var array = Object.keys(storage);
-    var result = array.pop();
-    delete storage[result];
-
-    return result;
+    if (keyNum > 0) {
+      var result = storage[keyNum];
+      delete storage[keyNum];
+      for (var i in storage) {
+        storage[i - 1] = storage[i];
+      }
+      keyNum--;
+      return result;
+      }
   };
 
   someInstance.size = function() {
-    return Object.keys(storage).length;
+    return keyNum;
   };
 
   return someInstance;
