@@ -14,14 +14,13 @@ var Queue = function() {
 
   someInstance.dequeue = function() {
     if (keyNum > 0) {
-
-    var result = storage[1];
-    delete storage[1];
-    for (var i in storage) {
-      storage[i - 1] = storage[i];
-    }
-    keyNum--;
-    return result;
+      var result = storage[1];
+      delete storage[1];
+      for (var i in storage) {
+        storage[i - 1] = storage[i];
+      }
+      keyNum--;
+      return result;
     }
   };
 
