@@ -57,16 +57,13 @@ treeMethods.contains = function (value) {
 treeMethods.depthFirstLog = function (callback) {
   // Grab value and callback(this.value);
   this.value = callback(this.value);
-  // if (Object.keys(this.right).length > 0)
 
-    // this.right.depthFirstLog(callback)
-  //
   if (Object.keys(this.left).length > 0) {
     this.left.depthFirstLog(callback)
   }
-if (Object.keys(this.right).length > 0) {
+  if (Object.keys(this.right).length > 0) {
     this.right.depthFirstLog(callback)
-  }
+    }
 }
 
 /*
